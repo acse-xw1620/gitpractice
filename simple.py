@@ -12,4 +12,3 @@ ax.grid()
 ax.legend(loc = 'best', fontsize = 15)
 ax.set_title('My title')
 plt.show()
-
