@@ -7,7 +7,7 @@ y = np.exp(-a)
 
 fig = plt.figure(figsize = (12, 4))
 ax = fig.add_subplot(111)
-ax.plot(a, y, 'r', label = 'simple exp function')
+ax.plot(a, y, 'k', label = 'simple exp function')
 ax.grid()
 ax.legend(loc = 'best', fontsize = 15)
 ax.set_title('My title')
