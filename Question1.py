@@ -94,12 +94,12 @@ errors_norm_IE = np.zeros(N)
 for i, dt in enumerate(dts):
     tex = np.arange(t0, t_max+dt, dt)
     yex = y_ex(tex)
-    y_FE = forward_euler(f, y0, t0, t_max, dt)
-    y_IE = improved_euler(f, y0, t0, t_max, dt)
-    errors_last_FE[i] = np.abs(y_FE[0][-1] - yex[-1])
-    errors_norm_FE[i] = np.abs(np.linalg.norm(y_FE[0] - yex[-1]))
-    errors_last_IE[i] = np.abs(y_IE[0][-1] - yex[-1])
-    errors_norm_IE[i] = np.abs(np.linalg.norm(y_IE[0] - yex[-1]))
+    y_FE, t_FE = forward_euler(f, y0, t0, t_max, dt)
+    y_IE, t_IE = improved_euler(f, y0, t0, t_max, dt)
+    errors_last_FE[i] = np.abs(y_FE[-1] - yex[-1])
+    errors_norm_FE[i] = np.abs(np.linalg.norm(y_FE - yex, ord = 1)/len(t_FE))
+    errors_last_IE[i] = np.abs(y_IE[-1] - yex[-1])
+    errors_norm_IE[i] = np.abs(np.linalg.norm(y_IE - yex, ord = 1)/len(t_IE))
 
 
 print(errors_last_FE, '\n', errors_norm_FE , '\n',errors_last_IE, '\n',errors_norm_IE)
