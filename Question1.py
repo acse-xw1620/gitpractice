@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
+from mpltools import annotation
 
 # RK2 Scheme
 def RK2_alpha(f, y0, t0, t_max, dt, alpha=0.5):
@@ -102,7 +102,6 @@ for i, dt in enumerate(dts):
     errors_norm_IE[i] = np.abs(np.linalg.norm(y_IE - yex, ord = 1)/len(t_IE))
 
 
-print(errors_last_FE, '\n', errors_norm_FE , '\n',errors_last_IE, '\n',errors_norm_IE)
 fig = plt.figure(figsize = (8, 8))
 ax = fig.add_subplot(111)
 ax.loglog(dts,errors_last_FE, 'r.-', label = 'errors_last_FE')
@@ -111,5 +110,4 @@ ax.loglog(dts,errors_last_IE, 'y.-', label = 'errors_last_IE')
 ax.loglog(dts,errors_norm_IE, 'k.-', label = 'errors_norm_IE')
 ax.legend()
 ax.grid()
-print(dts)
 plt.show()
