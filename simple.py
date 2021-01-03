@@ -1,5 +1,12 @@
-import scipy.linalg as la
+# add = lambda x, y : x+y
+# a = add(10, 1)
+# print(a)
 
-b = la.toeplitz([1,-1,0,0], [1,2,0,0])
-print(b)
-print(1348.8*8.7)
+import numpy as np
+
+x = np.arange(0, 10, 1)
+print(x)
+choicelist = [x, x]
+conditionlist = [x<=2, x>=8]
+r = np.select(conditionlist, choicelist)
+print(r)
